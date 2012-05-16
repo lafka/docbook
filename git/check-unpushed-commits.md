@@ -21,4 +21,16 @@ git log $(git config --get branch.stage.remote)/$(git branch | awk '/*/{print $N
 ```bash
 # This only checks for things in local branch and not in remote
 git log --branches --not --remotes=origin
+```
+
+If you get errors complaining about ``No upstream branch found for '..'`` you need to run ``git branch --set-upstream <branch> origin/<branch>'``
+
+## Some nice aliases
+Thanks to Richard Hansen (http://stackoverflow.com/questions/231211/using-git-how-do-i-find-modified-files-between-local-and-remote#answer-6389348) for these.
+
+```bash
+git config --global alias.incoming '!git remote update -p; git log ..@{u}'
+git config --global alias.outgoing 'log @{u}..'
+```
+
 
