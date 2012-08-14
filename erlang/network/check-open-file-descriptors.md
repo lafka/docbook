@@ -2,7 +2,7 @@
 
 Some times you wake up to a ``erl_crash .dump`` file and some debug containing ``{{system_limit,[{erlang,spawn_link, [erlang,apply, [#Fun<file_io_server.0.53902168>,[]]]} ...``
 
-This is becouse the system runs out of file descriptors to use (it can be circumvented by passing +P to erl) or processes.
+This is becouse the system runs out of file descriptors to use (_it can be circumvented by passing +P to erl and system ulimit_) or processes.
 
 ## Find all open file descriptors
 Looks up all open ports and their type.
@@ -42,7 +42,7 @@ get more information about given process.
   ]]
 ```
 
-'''Filters can be achived by using process_info/2'''
+_Filters can be achived by using process_info/2_
 ```erlang
 1> [process_info(P, [current_function,initial_call]) || P <- processes()].
 [[{current_function,{init,loop,1}},
