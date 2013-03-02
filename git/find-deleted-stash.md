@@ -21,3 +21,6 @@ stats:
 ```bash
 git show --stat $(git fsck --no-reflog | awk '/dangling commit/ {print $NF}')
 ```
+
+
+_You can apply the patch by using `git stash apply <ref>`_
